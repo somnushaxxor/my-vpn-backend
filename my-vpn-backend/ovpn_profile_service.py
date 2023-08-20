@@ -25,6 +25,6 @@ class OvpnProfileService:
         if path.isfile(new_profile_path):
             raise ProfileUuidAlreadyExistsError()
         system(
-            f'echo "{OVPN_PASSPHRASE}" | {CREATE_OVPN_PROFILE_SCRIPT_PATH} {str(profile_uuid)} {OVPN_PROFILES_DIRECTORY}'
+            f"{CREATE_OVPN_PROFILE_SCRIPT_PATH} {str(profile_uuid)} {OVPN_PROFILES_DIRECTORY} {OVPN_PASSPHRASE}"
         )
         return new_profile_path
