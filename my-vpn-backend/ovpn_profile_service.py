@@ -22,7 +22,7 @@ class OvpnProfileService:
             + str(profile_uuid)
             + OvpnProfileService.PROFILE_FILE_SUFFIX
         )
-        if path.isfile(new_profile_path):
+        if path.exists(new_profile_path):
             raise ProfileUuidAlreadyExistsError()
         system(
             f"{CREATE_OVPN_PROFILE_SCRIPT_PATH} {str(profile_uuid)} {OVPN_PROFILES_DIRECTORY} {OVPN_PASSPHRASE}"
