@@ -6,4 +6,4 @@ get_profile_router = APIRouter()
 
 @get_profile_router.get("/profile")
 async def get_profile():
-    return FileResponse(OvpnProfileService.create_profile())
+    return FileResponse(path=OvpnProfileService.create_profile(),  media_type="application/binary")
